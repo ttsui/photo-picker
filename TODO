@@ -1,0 +1,4 @@
+TODO
+
+* Handle pictures without EXIF info e.g. Myall Lake Camping/OHHH_THE_STARS.jpg
+* Stop picking photos once dest is full. Tally up photo sizes as it copies
