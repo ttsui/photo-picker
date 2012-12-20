@@ -11,7 +11,7 @@
 (defn is-jpg? [file]
   (= ".jpg" (.toLowerCase (fs/extension file))))
 
-(defn foo [src-folder]
+(defn foo [src-folder dest-folder]
   (let [folders (.listFiles (File. src-folder))]
     (dotimes [i-th-folder 1]
       (let [folder (rand-nth folders)
@@ -22,8 +22,9 @@
                  extension (fs/extension file)]
              (println file)
              (if (and (fs/file? file) (is-jpg? file))
-               (println (orientation file))
-               (fs/copy+ file (str "/home/tony/tmp/" i-th-folder "/" j-th-file ".jpg")))))))))
+               (do 
+                 (println (orientation file))
+                 (fs/copy+ file (str dest-folder "/" (.getName folder) "/" (.getName file)))))))))))
 
 
 ;(defn -main [args]
