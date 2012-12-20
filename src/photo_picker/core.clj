@@ -13,15 +13,17 @@
 
 (defn foo [src-folder dest-folder]
   (let [folders (.listFiles (File. src-folder))]
-    (dotimes [i-th-folder 1]
+    (dotimes [i-th-folder 30]
       (let [folder (rand-nth folders)
             files (.listFiles folder)]
          (println (str "folder: " folder))
-         (dotimes [j-th-file 1]
+         (dotimes [j-th-file 10]
            (let [file (rand-nth files)
                  extension (fs/extension file)]
              (println file)
-             (if (and (fs/file? file) (is-jpg? file))
+             (if (and (fs/file? file)
+                      (is-jpg? file)
+                      (.startsWith (orientation file) "Top, left side"))
                (do 
                  (println (orientation file))
                  (fs/copy+ file (str dest-folder "/" (.getName folder) "/" (.getName file)))))))))))
