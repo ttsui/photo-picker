@@ -1,5 +1,5 @@
 (ns photo-picker.core
- (:require [fs.core :as fs])
+ (:require [me.raynes.fs :as fs])
  (:import [java.io File]
           [com.drew.metadata.exif ExifIFD0Directory ExifIFD0Descriptor]
           [com.drew.imaging ImageMetadataReader]))
@@ -27,7 +27,6 @@
                (do 
                  (println (orientation file))
                  (fs/copy+ file (str dest-folder "/" (.getName folder) "/" (.getName file)))))))))))
-
 
 ;(defn -main [args]
 ;   (foo (get 0
