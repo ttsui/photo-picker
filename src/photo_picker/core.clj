@@ -12,7 +12,8 @@
   (= ".jpg" (.toLowerCase (fs/extension file))))
 
 (defn foo [src-folder dest-folder]
-  (let [folders (.listFiles (File. src-folder))]
+  (let [contents (.listFiles (File. src-folder))
+        folders (filter (fn [f] (.isDirectory f)) contents)]
     (dotimes [i-th-folder 30]
       (let [folder (rand-nth folders)
             files (.listFiles folder)]

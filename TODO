@@ -5,7 +5,18 @@ TODO
 
 Bugs
 
-* user=> (foo, "/home/tony-f19/Pictures/Photos/London", "/home/tony-f19/tmp")
+* #<File /home/tony-f19/Pictures/Photos/Florence/DSC_5655.JPG>
+folder: /home/tony-f19/Pictures/Photos/Untitled Folder
+ArrayIndexOutOfBoundsException   java.lang.reflect.Array.get (Array.java:-2)
+
+#<File /home/tony-f19/Pictures/Photos/Nancy's Photo Shoot/IMG_5748.jpg>
+    Top, left side (Horizontal / normal)
+#<File /home/tony-f19/Pictures/Photos/Nancy's Photo Shoot/IMG_5757.jpg>
+    NullPointerException   clojure.lang.Reflector.invokeInstanceMethod
+    (Reflector.java:26)
+
+* [FIXED] user=> (foo, "/home/tony-f19/Pictures/Photos/London", "/home/tony-f19/tmp")
 folder: /home/tony-f19/Pictures/Photos/London/IMG_0154.JPG
 NullPointerException   me.raynes.fs/base-name (fs.clj:114)
+
 
